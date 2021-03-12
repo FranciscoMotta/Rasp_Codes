@@ -33,7 +33,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X38 -> 0b0011 1000
@@ -44,7 +44,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X06 -> 0b0000 0110
@@ -55,7 +55,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X0C -> 0b0000 1100
@@ -66,7 +66,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	"""MODO CARACTER: MENSAJE -> HOLA""" 
@@ -83,7 +83,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 except KeyboardInterrupt():
