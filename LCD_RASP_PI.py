@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
-import time 
+import time
 
-# PINES 
+# PINES
 
 GPIO.setwarnings(False) # Advertencias deshabilitadas
 GPIO.setmode(GPIO.BCM) # Enumeración de acuerdo al GPIO
@@ -11,12 +11,12 @@ GPIO.setmode(GPIO.BCM) # Enumeración de acuerdo al GPIO
 control = 2,3 # RS-ENABLE
 lcd_display = 4,5,6,7,8,9,10,11 # LCD0-LCD7
 
-# CONFIGURACION DE PINES 
+# CONFIGURACION DE PINES
 
 GPIO.setup(control, GPIO.OUT) # PINES DE CONTROL COMO SALIDA
 GPIO.setup(lcd_display, GPIO.OUT) # PINES DE DATOS LCD0-LCD7
 
-# LOOP 
+# LOOP
 
 try:
 	"""MODO COMANDO -> CONFIG = 0X01, 0X38, 0X06 0X0C"""
@@ -33,7 +33,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X38 -> 0b0011 1000
@@ -44,7 +44,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X06 -> 0b0000 0110
@@ -55,7 +55,7 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 	# 0X0C -> 0b0000 1100
@@ -66,10 +66,10 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
-	"""MODO CARACTER: MENSAJE -> HOLA""" 
+	"""MODO CARACTER: MENSAJE -> HOLA"""
 
 	GPIO.output(control, (True, False))
 
@@ -83,8 +83,8 @@ try:
 
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
 except KeyboardInterrupt():
-	GPIO.cleanup() 
+	GPIO.cleanup()
