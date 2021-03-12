@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
-import time 
+import time
 
-# PINES 
+# PINES
 
 GPIO.setwarnings(False) # Advertencias deshabilitadas
 GPIO.setmode(GPIO.BCM) # Enumeración de acuerdo al GPIO
@@ -11,12 +11,12 @@ GPIO.setmode(GPIO.BCM) # Enumeración de acuerdo al GPIO
 control = 2,3 # RS-ENABLE
 lcd_display = 4,5,6,7,8,9,10,11 # LCD0-LCD7
 
-# CONFIGURACION DE PINES 
+# CONFIGURACION DE PINES
 
 GPIO.setup(control, GPIO.OUT) # PINES DE CONTROL COMO SALIDA
 GPIO.setup(lcd_display, GPIO.OUT) # PINES DE DATOS LCD0-LCD7
 
-# LOOP 
+# LOOP
 
 try:
 	"""MODO COMANDO -> CONFIG = 0X01, 0X38, 0X06 0X0C"""
@@ -49,7 +49,7 @@ try:
 
 	# 0X06 -> 0b0000 0110
 
-	GPIO.output(lcd_display, (False, True, True, False, False, False, False, False))
+	GPIO.output(lcd_display, (False, False, True, True, False, False, False, False))
 
 	# TIEMPO DE ENABLE
 
@@ -60,7 +60,7 @@ try:
 
 	# 0X0C -> 0b0000 1100
 
-	GPIO.output(lcd_display, (False, False, True, True, False, False, False, False))
+	GPIO.output(lcd_display, (False, True, True, False, False, False, False, False))
 
 	# TIEMPO DE ENABLE
 
@@ -69,22 +69,29 @@ try:
 	GPIO.output(control, (False, False))
 	time.sleep(0.001)
 
-	"""MODO CARACTER: MENSAJE -> HOLA""" 
+	"""MODO CARACTER: MENSAJE -> HOLA"""
 
 	GPIO.output(control, (True, False))
 
 	time.sleep(0.001)
 
 	# LETRA H -> 0b0100 1000
+    while True:
+        GPIO.output(lcd_display, (False, False, False, True, False, False, True, False))
 
-	GPIO.output(lcd_display, (False, False, False, True, False, False, True, False))
+        # TIEMPO DE ENABLE
 
-	# TIEMPO DE ENABLE
-
+<<<<<<< HEAD
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
 	GPIO.output(control, (False, False))
 	time.sleep(0.001)
+=======
+        GPIO.output(control, (True, True))
+        time.sleep(0.001)
+        GPIO.output(control, (True, False))
+        time.sleep(0.001)
+>>>>>>> ff57b0c663dd2673dc60e2cbac16712eef8d85a0
 
 except KeyboardInterrupt():
-	GPIO.cleanup() 
+	GPIO.cleanup()
