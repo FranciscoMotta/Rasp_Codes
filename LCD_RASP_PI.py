@@ -19,8 +19,7 @@ GPIO.setup(lcd_display, GPIO.OUT) # PINES DE DATOS LCD0-LCD7
 # LOOP 
 
 try:
-
-	# Modo comando 
+	"""MODO COMANDO -> CONFIG = 0X01, 0X38, 0X06 0X0C"""
 
 	GPIO.output(control, (False, False))
 	time.sleep(0.001)
@@ -59,5 +58,33 @@ try:
 	GPIO.output(control, (False, True))
 	time.sleep(0.001)
 
+	# 0X0C -> 0b0000 1100
+
+	GPIO.output(lcd_display, (False, False, True, True, False, False, False, False))
+
+	# TIEMPO DE ENABLE
+
+	GPIO.output(control, (False, True))
+	time.sleep(0.001)
+	GPIO.output(control, (False, True))
+	time.sleep(0.001)
+
+	"""MODO CARACTER: MENSAJE -> HOLA""" 
+
+	GPIO.output(control, (True, False))
+
+	time.sleep(0.001)
+
+	# LETRA H -> 0b0100 1000
+
+	GPIO.output(lcd_display, (False, False, False, True, False, False, True, False))
+
+	# TIEMPO DE ENABLE
+
+	GPIO.output(control, (False, True))
+	time.sleep(0.001)
+	GPIO.output(control, (False, True))
+	time.sleep(0.001)
+
 except KeyboardInterrupt():
-	GPIO.cleanup()
+	GPIO.cleanup() 
