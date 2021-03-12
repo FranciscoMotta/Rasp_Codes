@@ -29,7 +29,7 @@ try:
 		GPIO.output(led, GPIO.HIGH)
 		time.sleep(0.1)
 	else:
-		GPIO.output(led, LOW)
+		GPIO.output(led, GPIO.sLOW)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
