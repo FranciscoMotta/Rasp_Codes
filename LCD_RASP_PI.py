@@ -49,7 +49,7 @@ try:
 
 	# 0X06 -> 0b0000 0110
 
-	GPIO.output(lcd_display, (False, True, True, False, False, False, False, False))
+	GPIO.output(lcd_display, (False, False, True, True, False, False, False, False))
 
 	# TIEMPO DE ENABLE
 
@@ -60,7 +60,7 @@ try:
 
 	# 0X0C -> 0b0000 1100
 
-	GPIO.output(lcd_display, (False, False, True, True, False, False, False, False))
+	GPIO.output(lcd_display, (False, True, True, False, False, False, False, False))
 
 	# TIEMPO DE ENABLE
 
@@ -77,14 +77,15 @@ try:
 
 	# LETRA H -> 0b0100 1000
 
-	GPIO.output(lcd_display, (False, False, False, True, False, False, True, False))
+	GPIO.output(lcd_display, (True, False, False, True, False, False, True, False))
 
 	# TIEMPO DE ENABLE
 
-	GPIO.output(control, (False, True))
+	GPIO.output(control, (True, True))
 	time.sleep(0.001)
-	GPIO.output(control, (False, False))
+	GPIO.output(control, (True, False))
 	time.sleep(0.001)
+    while True:
 
 except KeyboardInterrupt():
 	GPIO.cleanup()
