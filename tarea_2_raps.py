@@ -33,7 +33,7 @@ try:
            GPIO.output(ledPrendidos, GPIO.HIGH)
 
     elif GPIO.input(botonDecremeto) == False:
-        GPIO.output(ledPresionado, GPIO.LOW)
+        GPIO.output(ledPrendidos, GPIO.LOW)
 	print("Boton de decremento presionado")
         if ledPrendidos < 4:
             ledPrendidos = 4
