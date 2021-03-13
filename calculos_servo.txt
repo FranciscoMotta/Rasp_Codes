@@ -1,0 +1,19 @@
+PWM periodo = 20ms -> 50hz 
+
+GRADOS DE FUNCIONAMIENTO = 0 - 180° -> 1 - 2ms
+
+180 = 2 ms -> 10%
+
+grados = x ms -> x%
+
+tiempo_ms = grados*2/180 -> tiempo en ms
+
+
+2 = 10
+tiempo_ms = porcentaje
+
+tiempo_ms = 2*porcentaje/10
+
+porcentaje = tiempo_ms*10/2
+
+
