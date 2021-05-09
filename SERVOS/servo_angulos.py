@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 
 # CONFIG PINES 
 pinServo = 21
-GPIO.output(pinServo, GPIO.OUTPUT)
+GPIO.setup(pinServo, GPIO.OUT)
 
 # PWM INIT
 
@@ -19,3 +19,4 @@ while True:
     tiempo_ms = (anguloDeGiro*2)/180
     porcentajeActiv = (tiempo_ms*10)/2
     pinPwm.ChangeDutyCycle(porcentajeActiv)
+    print("El porcentaje de giro es: ", porcentajeActiv)
